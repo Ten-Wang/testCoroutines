@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         mGithubService = GithubServiceHelper.getGithubService(BuildConfig.GITHUTAPI_URI)
         CoroutineScope(Dispatchers.IO).launch {
-            // Retrofit return Differed<Response<BookStore>>
+            // Retrofit return Differed<List<GithubUserItem>>
             val result = mGithubService.allUsers.await()
             // Switch to Android mainThread
             withContext(Dispatchers.Main) {
